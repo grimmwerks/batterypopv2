@@ -2230,7 +2230,7 @@ border-bottom: 1px solid $gray-xlite;
   @extend %border-radius;
 }
 
-.avatar-slider-parent {
+.avatar-slider-parent{
   margin-bottom: 20px;
   ul {
   margin-bottom: 0;
@@ -2265,6 +2265,46 @@ border-bottom: 1px solid $gray-xlite;
     @include link-colors($gray-lite, $gray-lite, $gray-lite, $gray-lite);
   }
 }
+
+
+
+.poll-slider-parent {
+  margin-bottom: 20px;
+  ul {
+  margin-bottom: 0;
+  float: left;
+    li {
+      width: 240px !important;
+    }
+  }
+
+  .bx-viewport {
+    height: 2 !important;
+  }
+    .bx-wrapper {
+    margin-bottom: 0;
+  }
+  .bx-wrapper .bx-controls-direction a {
+    top: 100%;
+    @include link-colors($blue, darken($blue, 10%), $blue, $blue);
+  }
+
+  .bx-prev {
+    left: -5px;
+  }
+
+  .bx-next {
+    right: -5px;
+  }
+
+  .bx-wrapper .bx-controls-direction a.disabled {
+    display: inline;
+    cursor: default;
+    @include link-colors($gray-lite, $gray-lite, $gray-lite, $gray-lite);
+  }
+}
+
+
 
 .modal {
   z-index: 1050;
@@ -2703,3 +2743,10 @@ div.text-right {
   font-family: $font-sans;
   @include fontsize(1.4);
 }
+
+.jumbotron {
+  background-size: cover;
+  position: relative;
+  z-index: 0;
+}
+

@@ -4,18 +4,36 @@ function formatEpisode(ep){
 
 
 function setSortAtStart(){
-	var order = jQuery("[name='s2_episode_order']").val().split(",");
-	// this is the order of ids  ["206", "269", "343", "788", "1017", "1080"]
-	var search = jQuery("#s2id_friend_episode_ids .select2-choices .select2-search-field");
+	if (jQuery("[name='s2_episode_order']").val() != undefined){
+		var order = jQuery("[name='s2_episode_order']").val().split(",");
+		// this is the order of ids  ["206", "269", "343", "788", "1017", "1080"]
+		var search = jQuery("#s2id_friend_episode_ids .select2-choices .select2-search-field");
 
-	var orderedItems = jQuery.map(order, function(value){
-		var dis =  jQuery("[id='"+value+"']").parent().parent();
-		return dis;
-	});
-	// console.log(orderedItems);
-	orderedItems.push(search);
-	// jQuery("#s2id_friend_episode_ids .select2-choices .select2-search-choice").remove();
-	jQuery(search).before(orderedItems);
+		var orderedItems = jQuery.map(order, function(value){
+			var dis =  jQuery("[id='"+value+"']").parent().parent();
+			return dis;
+		});
+		// console.log(orderedItems);
+		orderedItems.push(search);
+		// jQuery("#s2id_friend_episode_ids .select2-choices .select2-search-choice").remove();
+		jQuery(search).before(orderedItems);
+	}
+
+
+	if (jQuery("[name='s2_poll_question_order']").val() != undefined){
+		var order = jQuery("[name='s2_poll_question_order']").val().split(",");
+		var search = jQuery("#s2id_poll_poll_question_ids .select2-choices .select2-search-field");
+
+		var orderedItems = jQuery.map(order, function(value){
+			var dis =  jQuery("[id='"+value+"']").parent().parent();
+			return dis;
+		});
+		// console.log(orderedItems);
+		orderedItems.push(search);
+		jQuery(search).before(orderedItems);
+	}
+
+
 }
 
 

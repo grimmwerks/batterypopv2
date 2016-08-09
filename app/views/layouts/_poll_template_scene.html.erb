@@ -1,0 +1,107 @@
+<style>
+	<% @poll.poll_questions.reorder(:order).each do |pq| %>
+					
+		.poll_layer_<%= pq.order %> {
+		  position: absolute;
+		  z-index: <%= pq.order %>;
+		  /*left: calc(20% - 15%);  15% is half its 30% width */
+		  /*transform: translateX(-50%);*/
+		  /*top: 50%;*/
+		  /*transform: translateY(-50%);*/
+		  display: inline-block;
+		}
+
+	<% end %>
+</style>
+
+
+
+
+
+
+<section class="wrapper">
+
+
+	<div class="row clearfix">
+		<div class="col-xs-12 column">
+
+			<div class="jumbotron scene" style="background-image:url(<%= @poll.image %>)">
+				<% @poll.poll_questions.reorder(:order).each do |pq| %>
+					
+					<img class="poll_layer_<%= pq.order %>" src="<%= pq.image %>" alt="" />
+
+				<% end %>
+
+			</div>
+
+		</div>
+	</div>
+
+
+<!-- question loop -->
+<%= form_for(@poll, :url => {action: "save_poll"}) do |f| %>
+<% @poll.poll_questions.reorder(:order).each do |pq| %>
+	
+	<div class="row clearfix">
+	
+		<div class="col-md-12 column">
+
+
+
+			<% if pq.poll_answers.empty? %>
+				<center><h2>No items found.</h2></center>
+			<% else %>
+				
+				<div class="col-xs-6">
+
+					<div class="panel panel-default">
+					  <div class="panel-heading">
+						  <h3 class="panel-title"><%= pq.title %></h3>
+					  </div>
+					  <div class="panel-body">
+
+						<div class="poll-slider-parent">
+							
+							<ul class="bxslider poll-slider slider ">
+								<% pq.poll_answers.each do |item| %>
+									<li data-id="<%= item.id %>" data-question="<%= pq.id %>">
+										<%=  image_tag(item.image, :width => '240', :class => "poll-image data-id=#{item.id}") %>
+									</li>
+								<% end %>
+							</ul>
+						</div>
+					
+					</div>
+				</div>
+					
+				<%= hidden_field_tag "poll_question_#{pq.id}" %>
+
+				</div>
+
+
+	
+
+
+
+			<% end %>
+
+
+
+		</div>
+
+	</div>
+
+<% end %>
+	
+<!-- submit button -->
+	<div class="row clearfix">
+		<div class="col-md-3 col-md-offset-9">
+			<%= f.submit "Save", class: "btn btn-primary  btn-block" %>
+		</div>
+	</div>
+
+<!-- end submit button -->
+<% end %>
+<!-- end question loop -->
+
+</section>

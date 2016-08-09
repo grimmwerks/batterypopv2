@@ -1,5 +1,6 @@
 ActiveAdmin.register Survey::Survey do
-  menu :label => I18n.t("surveys")
+  # menu :label => I18n.t("surveys")
+  menu :parent => "Voting", :priority => 7
 
   filter  :name,
           :as => :select,

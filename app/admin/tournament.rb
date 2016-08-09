@@ -2,7 +2,8 @@ require 'set'
 
 ActiveAdmin.register Tournament do
 
-  menu :parent => "bPOP Tournaments"# , :priority => 1
+  # menu :parent => "bPOP Tournaments"# , :priority => 1
+  menu :parent => "Voting", :priority => 6
   filter :title
 
   before_filter :only => [:update] do

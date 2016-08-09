@@ -1,0 +1,65 @@
+<section class="wrapper">
+
+
+<!-- question loop -->
+<%= form_for(@poll, :url => {action: "save_poll"}) do |f| %>
+<% @poll.poll_questions.each do |pq| %>
+	
+	<div class="row clearfix">
+	
+		<div class="col-md-12 column">
+
+
+
+			<% if pq.poll_answers.empty? %>
+				<center><h2>No items found.</h2></center>
+			<% else %>
+				
+				<div class="col-xs-12">
+
+<div class="panel panel-default">
+  <div class="panel-body">
+
+					<div class="poll-slider-parent">
+						
+						<ul class="bxslider poll-slider slider ">
+							<% pq.poll_answers.each do |item| %>
+								<li data-id="<%= item.id %>" data-question="<%= pq.id %>">
+									<%=  image_tag(item.image, :width => '120', :class => "poll-image data-id=#{item.id}") %>
+								</li>
+							<% end %>
+						</ul>
+					</div>
+					
+</div></div>
+					
+				<%= hidden_field_tag "poll_question_#{pq.id}" %>
+
+				</div>
+
+
+	
+
+
+
+			<% end %>
+
+
+
+		</div>
+
+	</div>
+
+<% end %>
+	
+	<div class="row clearfix">
+		<div class=".col-md-3 .col-md-offset-3">
+
+		<%= f.submit "Save", class: "btn btn-primary btn-xs btn-block", :data => {:toggle=>"popover", :trigger => 'hover', :placement => 'right', :html => true,  :content => "Save Avatar"}  %>
+		</div>
+	</div>
+
+<% end %>
+<!-- end question loop -->
+
+</section>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160229213007) do
+ActiveRecord::Schema.define(version: 20160806214318) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -357,6 +357,57 @@ ActiveRecord::Schema.define(version: 20160229213007) do
     t.string   "searchable_type"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "poll_answers", force: true do |t|
+    t.string   "title"
+    t.text     "description"
+    t.integer  "poll_question_id"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "poll_answers", ["poll_question_id"], name: "index_poll_answers_on_poll_question_id", using: :btree
+
+  create_table "poll_questions", force: true do |t|
+    t.string   "title"
+    t.text     "description"
+    t.integer  "order"
+    t.integer  "poll_id"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "slug"
+    t.integer  "offset_x"
+    t.integer  "offset_y"
+  end
+
+  add_index "poll_questions", ["poll_id"], name: "index_poll_questions_on_poll_id", using: :btree
+
+  create_table "polls", force: true do |t|
+    t.string   "title"
+    t.text     "description"
+    t.datetime "start_date"
+    t.datetime "end_date"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "background_file_name"
+    t.string   "background_content_type"
+    t.integer  "background_file_size"
+    t.datetime "background_updated_at"
+    t.text     "content"
+    t.string   "slug"
   end
 
   create_table "posts", force: true do |t|

@@ -56,7 +56,7 @@ module ApplicationHelper
       # request.fullpath.split("/").second 
       # if request.fullpath.split("/").third=="batterypop-gamezone"
       # if (controller_name=="friends") && (action_name == "show") 
-      if (request.fullpath.split("/").second == "friends")
+      if (request.fullpath.split("/").second == "friends" || request.fullpath.split("/").second == "polls")
         return "container-friends"
       else
         return ""

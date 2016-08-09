@@ -29,6 +29,21 @@ Batterypopv2::Application.routes.draw do
   end
 
   # resources :episodes
+  # 
+  
+  resources :polls do 
+    member do 
+      patch :save_poll
+    end
+
+    # resources :poll_questions do
+    #   member do 
+  
+    #   end
+    # end
+  end
+# save_poll_question_poll_poll_question PATCH      /polls/:poll_id/poll_questions/:id/save_poll_question(.:format) 
+  
 
   resources :posts
 
