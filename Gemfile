@@ -38,6 +38,9 @@ gem 'ZenTest', '~> 4.9.5'
 
 
 gem 'paperclip',  '>= 3.4.0'  # image upload
+
+gem 'mini_magick'
+
 gem 'aws-sdk'
 
 gem 'unicorn'

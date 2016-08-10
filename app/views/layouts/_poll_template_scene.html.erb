@@ -22,29 +22,17 @@
 <section class="wrapper">
 
 
+
+
 	<div class="row clearfix">
-		<div class="col-xs-12 column">
-
-			<div class="jumbotron scene" style="background-image:url(<%= @poll.image %>)">
-				<% @poll.poll_questions.reorder(:order).each do |pq| %>
-					
-					<img class="poll_layer_<%= pq.order %>" src="<%= pq.image %>" alt="" />
-
-				<% end %>
-
-			</div>
-
-		</div>
-	</div>
-
+	
+		<div class="col-md-12 column">
 
 <!-- question loop -->
 <%= form_for(@poll, :url => {action: "save_poll"}) do |f| %>
 <% @poll.poll_questions.reorder(:order).each do |pq| %>
 	
-	<div class="row clearfix">
 	
-		<div class="col-md-12 column">
 
 
 
@@ -52,7 +40,7 @@
 				<center><h2>No items found.</h2></center>
 			<% else %>
 				
-				<div class="col-xs-6">
+				<div class="col-xs-3">
 
 					<div class="panel panel-default">
 					  <div class="panel-heading">
@@ -87,12 +75,12 @@
 
 
 
+	
+
+<% end %>
 		</div>
 
 	</div>
-
-<% end %>
-	
 <!-- submit button -->
 	<div class="row clearfix">
 		<div class="col-md-3 col-md-offset-9">
