@@ -39,6 +39,7 @@ gem 'ZenTest', '~> 4.9.5'
 
 gem 'paperclip',  '>= 3.4.0'  # image upload
 
+
 gem 'mini_magick'
 
 gem 'aws-sdk'
@@ -171,6 +172,7 @@ group :development do
   gem 'spork-rails', :github => 'sporkrb/spork-rails'
   gem 'annotate'
   gem 'pry'
+  gem 'pry-byebug'
   # gem 'debugger'
   gem 'rails-erd'
    # gem 'sqlite3'

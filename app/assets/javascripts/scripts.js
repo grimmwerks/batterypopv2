@@ -25,7 +25,9 @@ jQuery(document).ready(function() {
 
     });
 
-
+    // $(layer).replaceWith('<%= escape_javascript(render_partial => "polls/template_scene_layer", :locals => {' + locals + '}) %>');
+    // $(layer).replaceWith('<%= escape_javascript(render :partial => "polls/template_scene_layer", :locals => {:q_id => '+q+', :start_image => nil, :a_id => '+id+'}) %>');
+     
 
 
     jQuery('a[rel="external"]')
@@ -129,34 +131,6 @@ jQuery(document).ready(function() {
 
 
 
-    var pollSlider = $('.poll-slider').bxSlider({
-        // onSlideAfter: function(item){
-        //     var id = item[0].getAttribute('data');
-        //     $('#avatar_id').val(id);
-        // },
-        onSlideAfter: function(item){
-            // var id = item[0].getAttribute('data');
-            // var id = item[0].dataset.id;
-            // var q = item[0].dataset.question;
-            // var id = item[0].data()
-            // alert(id +" "+ q);
-            var id = item[0].getAttribute('data-id');
-            var q = item[0].getAttribute('data-question');
-            var j = "#poll_question_"+q;
-            $(j).val(id);
-        },
-        // startSlide: ($('#avatar_id').val()-1),
-        auto: false,
-        responsive: true,
-        touchEnabled: true, 
-        pager: false,
-        minSlides: 1,
-        maxSlides: 1,
-        slideWidth: 240,
-        infiniteLoop: true,
-        hideControlOnEnd: false,
-        slideMargin: 0
-    })
 
 
 

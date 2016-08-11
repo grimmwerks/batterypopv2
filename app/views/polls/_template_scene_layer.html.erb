@@ -1,0 +1,11 @@
+<% 
+if start_image.nil? # use answer image 
+	pa=PollAnswer.find(a_id)
+	url = pa.image.url
+else
+	pq = PollQuestion.find(q_id)
+	url = pq.image.url
+end
+%>
+
+<img class="poll_scene_layer" id="poll_question_layer_<%= q_id %>"  />

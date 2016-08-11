@@ -10,26 +10,30 @@ class PollsController < ApplicationController
 	end
 
 	def save_poll
-		answer_txt=""
-		imgs = []
-		@poll.poll_questions.each do |q|
+		# binding.pry
+		# answer_txt=""
+		data = []
+		@poll.poll_questions.reorder(:order).each do |q|
 			a_id = params["poll_question_#{q.id}"]
 			poll_answer = PollAnswer.find(a_id.to_i)
-			answer_image = poll_answer.image
+			answer_image_url = poll_answer.image.url
 			# vote for @poll_answer
-			imgs << {question_id: q.id, answer_id: a_id, img: answer_image, offset_x: q.offset_x, q: poll_answer.offset_y}
+			data << {question_id: q.id, answer_id: a_id.to_i, img: answer_image_url}
 		end
 
-		binding.pry
+		@poll_scene = PollScene.build_scene(data)
+	end
+
+	def refresh_layer
+		@poll_answer = PollAnswer.find(params[:answer_id])
+		@poll_question = PollQuestion.find(params[:question_id])
+		respond_to do |format|
+			format.js
+		end
 	end
 
 
-	# def upload_to_s3 bucket_name, key, file
-	#   s3 = AWS::S3.new(:access_key_id => 'YOUR_ACCESS_KEY_ID', :secret_access_key => 'YOUR_SECRET_ACCESS_KEY')
-	#   bucket = s3.buckets[bucket_name]
-	#   obj = bucket.objects[key]
-	#   obj.write(File.open(file, 'rb'), :acl => :public_read)
-	# end
+
 
 		private
 	def set_poll

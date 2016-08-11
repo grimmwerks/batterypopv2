@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160806214318) do
+ActiveRecord::Schema.define(version: 20160811063417) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -369,9 +369,23 @@ ActiveRecord::Schema.define(version: 20160806214318) do
     t.datetime "image_updated_at"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "slide_image_file_name"
+    t.string   "slide_image_content_type"
+    t.integer  "slide_image_file_size"
+    t.datetime "slide_image_updated_at"
   end
 
   add_index "poll_answers", ["poll_question_id"], name: "index_poll_answers_on_poll_question_id", using: :btree
+
+  create_table "poll_answers_poll_scenes", force: true do |t|
+    t.integer  "poll_scene_id"
+    t.integer  "poll_answer_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "poll_answers_poll_scenes", ["poll_answer_id"], name: "index_poll_answers_poll_scenes_on_poll_answer_id", using: :btree
+  add_index "poll_answers_poll_scenes", ["poll_scene_id"], name: "index_poll_answers_poll_scenes_on_poll_scene_id", using: :btree
 
   create_table "poll_questions", force: true do |t|
     t.string   "title"
@@ -385,11 +399,20 @@ ActiveRecord::Schema.define(version: 20160806214318) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "slug"
-    t.integer  "offset_x"
-    t.integer  "offset_y"
+    t.text     "data"
   end
 
   add_index "poll_questions", ["poll_id"], name: "index_poll_questions_on_poll_id", using: :btree
+
+  create_table "poll_scenes", force: true do |t|
+    t.string   "name"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "polls", force: true do |t|
     t.string   "title"
