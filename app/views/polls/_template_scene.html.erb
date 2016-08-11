@@ -2,12 +2,14 @@
 
 <!-- top part -->
 	<div class="row clearfix">
-		<div class="poll_scene" style="background-image:url(<%= @poll.image %>)">
+		<div class="thumbnail">
+			<div class="poll_scene" style="background-image:url(<%= @poll.image %>)">
 
-		<% @poll.poll_questions.reorder(:order).each do |pq| %>
-			<%= render :partial => "polls/template_scene_layer", :locals =>{:q_id => pq.id, :start_image => true, :a_id => nil} %>
-		<% end %>
-	      
+			<% @poll.poll_questions.reorder(:order).each do |pq| %>
+				<%= render :partial => "polls/template_scene_layer", :locals =>{:q_id => pq.id, :start_image => true, :a_id => nil} %>
+			<% end %>
+		      
+			</div>
 		</div>
 	</div>
 <!-- end top part -->
@@ -21,12 +23,19 @@
 	<div class="row clearfix">
 	
 		<div class="col-md-12 column">
-
+	
 <!-- question loop -->
+<% pos = 0 %>
+
 <%= form_for(@poll, :url => {action: "save_poll"}) do |f| %>
 <% @poll.poll_questions.reorder(:order).each do |pq| %>
 	
-	
+		<%  if(pos >= (colors.count-1)) 
+            pos =0 
+          else
+            pos = pos + 1
+          end
+        %>
 
 
 
@@ -34,29 +43,37 @@
 				<center><h2>No items found.</h2></center>
 			<% else %>
 				
-				<div class="col-xs-6">
+				<div class="col-md-6">
 
-					<div class="panel panel-default">
-					  <div class="panel-heading">
-						  <h3 class="panel-title"><%= pq.title %></h3>
-					  </div>
-					  <div class="panel-body">
+					<div class="panel-split panel-frame panel panel-<%= colors[pos] %> clearfix">
+					 	
+					 	<div class="poll summary"><h2><%= pq.title %></h2></div>
 
-						<div class="poll-slider-parent">
-							
-							<ul class="bxslider poll-slider slider ">
-								<% pq.poll_answers.each do |item| %>
-									<li data-id="<%= item.id %>" data-question="<%= pq.id %>">
-										<%=  image_tag(item.slide_image, :height => '160', :class => "poll-image data-id=#{item.id}") %>
-									</li>
-								<% end %>
-							</ul>
+
+						<div class="row clearfix">
+
+							<div class="col-xs-12">
+
+								<div class="poll carousel theme-gold theme-invert">
+
+									<div class="poll-slider-parent">
+										<ul class="bxslider poll-slider slider ">
+											<% pq.poll_answers.each do |item| %>
+												<li data-id="<%= item.id %>" data-question="<%= pq.id %>">
+													<%=  image_tag(item.slide_image, :height => '160', :class => "poll-image data-id=#{item.id}") %>
+												</li>
+											<% end %>
+										</ul>
+									</div>
+
+								</div>
+
+							</div>
+
 						</div>
-					
 					</div>
-				</div>
 					
-				<%= hidden_field_tag "poll_question_#{pq.id}" %>
+					<%= hidden_field_tag "poll_question_#{pq.id}" %>
 
 				</div>
 
@@ -76,9 +93,23 @@
 
 	</div>
 <!-- submit button -->
-	<div class="row clearfix">
-		<div class="col-md-3 col-md-offset-9">
-			<%= f.submit "Save", class: "btn btn-primary  btn-block" %>
+	<div class="row  clearfix">
+
+		<div class="poll banner theme-red">
+
+			<div class="well well-frame col-md-12">
+			
+				<div class="col-md-9">
+				<h2>Create your scene!</h2>
+				<p>Choose the elements above, then hit the <b>Save Scene</b> button:</p>
+				</div>
+
+				<div class="col-md-3">
+					<%= f.submit "Save Scene", class: "btn btn-lg btn-primary  btn-block" %>
+				</div>
+
+			</div>
+
 		</div>
 	</div>
 
