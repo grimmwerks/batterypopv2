@@ -2285,18 +2285,18 @@ border-bottom: 1px solid $gray-xlite;
     margin-bottom: 0;
   }
   .bx-wrapper .bx-controls-direction a {
-    top: 50%;
+    top: -30px;
     @include link-colors($blue, darken($blue, 10%), $blue, $blue);
   }
 
 
 
   .bx-prev {
-    left: -40px !important;
+    left: -10px !important;
   }
 
   .bx-next {
-    right: -40px !important;
+    right: -10px !important;
   }
 
   .bx-wrapper .bx-controls-direction a.disabled {
@@ -2746,6 +2746,10 @@ div.text-right {
   @include fontsize(1.4);
 }
 
+.poll.row{
+  margin-bottom: 0px !important;
+}
+
 .poll_scene {
   height: 0;
   padding: 0;
@@ -2766,9 +2770,10 @@ div.text-right {
   display: inline-block;
 }
 
-.poll.summary h2{
+.poll.summary h3{
   // background-color: white;
   // margin-left: -1px;
+  text-align: center;
   color: white;
 }
 
@@ -2798,9 +2803,14 @@ div.text-right {
 
 .poll-image { margin: auto; }
 
-.poll-slider li h2 { text-align: center; }
+.poll-slider li h3 { 
+  text-align: center;
+  color: black; 
+}
 
-.poll.summary h2 { text-align: center; }
+.row-nomargin { margin-left: 0; margin-right: 0; } 
+.col-nomargin { padding-left: 0; padding-right: 0; }
+
 
 .poll-slider-parent  .bx-wrapper .bx-controls-direction a {
   @include link-colors($lite,  gray-lite, $lite, $lite);

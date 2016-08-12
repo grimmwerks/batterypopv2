@@ -1,7 +1,7 @@
 <section class="wrapper">
 
 <!-- top part -->
-	<div class="row clearfix">
+	<div class="poll row clearfix">
 		<div class="thumbnail">
 			<div class="poll_scene" style="background-image:url(<%= @poll.image %>)">
 
@@ -20,9 +20,9 @@
 
 
 
-	<div class="row clearfix">
+	<div class="row row-nomargin clearfix">
 	
-		<div class="col-md-12 column">
+		
 	
 <!-- question loop -->
 <% pos = 0 %>
@@ -41,12 +41,12 @@
 				<center><h2>No items found.</h2></center>
 			<% else %>
 				
-				<div class="col-md-6">
+				<div class="col-md-3 col-nomargin">
 
 					<div class="panel-split panel-frame panel panel-<%= colors[pos] %> clearfix">
 					 	
 					 	<div class="poll summary">
-						 	<h2><%= pq.title %></h2>
+						 	<h3><%= pq.title %></h3>
 					 	</div>
 
 
@@ -62,7 +62,7 @@
 												<li data-id="<%= item.id %>" data-question="<%= pq.id %>">
 													<%=  image_tag(item.slide_image, :height => '160', :class => "poll-image data-id=#{item.id}") %>
 
-													<h2><%= item.title %></h2>
+													<h3><%= item.title %></h3>
 												</li>
 											<% end %>
 										</ul>
@@ -91,7 +91,7 @@
 	
 
 <% end %>
-		</div>
+		
 
 	</div>
 <!-- submit button -->
