@@ -7,6 +7,10 @@ class PollsController < ApplicationController
 
 	def show
 		@title = @poll.title
+		if @poll.background.present? 
+			@custom_background = @poll.background(:original)
+		end
+		@custom_background_full = true
 	end
 
 	def save_poll

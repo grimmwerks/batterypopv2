@@ -40,9 +40,9 @@
 						 	<h2><%= pq.title %></h2>
 					 	</div>
 
-						<ul class="list-group list-group-poll">
+						<ul class="list-group list-group-poll block-grid-sm-4">
 						<% pq.poll_answers.each do |item| %>
-							<li class="list-group-item">
+							<li class="list-group-item block-grid-item">
 						      	<div class="row clearfix">
 						      		<div class="col-xs-10">
 							      		<%=  image_tag(item.slide_image, :height => '90', :class => "thumbnail") %>
