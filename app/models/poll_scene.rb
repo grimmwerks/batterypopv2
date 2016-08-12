@@ -37,7 +37,7 @@ class PollScene < ActiveRecord::Base
 			end
 			ids<<i[:answer_id]
 		end
-		name = ids.map{|k| "pollanswer_#{k}"}.join("-")
+		name = data.map{|item| "question_#{item[:question_id]}_#{item[:answer_id]}"}.join("-")
 		@poll_scene = PollScene.new(name: name, image: File.open(@result))
 		@poll_scene.poll_answer_ids = ids
 		@poll_scene.save
@@ -47,12 +47,8 @@ class PollScene < ActiveRecord::Base
 
 	def self.find_scene_by_answer_ids(ids)
 		sql = "SELECT poll_scenes.* FROM poll_scenes INNER JOIN poll_answers_poll_scenes ON poll_answers_poll_scenes.poll_scene_id = poll_scenes.id INNER JOIN poll_answers ON poll_answers.id = poll_answers_poll_scenes.poll_answer_id WHERE poll_answers.id IN (#{ids.join(',')}) group by poll_scenes.id having count(distinct poll_answers.id) = #{ids.count}"
-		ret = PollScene.find_by_sql(sql)
-		if ret.count
-			return ret
-		else
-			return nil
-		end
+		PollScene.find_by_sql(sql).first
+
 	end
 	
 	private

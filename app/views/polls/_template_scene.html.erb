@@ -37,8 +37,6 @@
           end
         %>
 
-
-
 			<% if pq.poll_answers.empty? %>
 				<center><h2>No items found.</h2></center>
 			<% else %>
@@ -47,7 +45,9 @@
 
 					<div class="panel-split panel-frame panel panel-<%= colors[pos] %> clearfix">
 					 	
-					 	<div class="poll summary"><h2><%= pq.title %></h2></div>
+					 	<div class="poll summary">
+						 	<h2><%= pq.title %></h2>
+					 	</div>
 
 
 						<div class="row clearfix">

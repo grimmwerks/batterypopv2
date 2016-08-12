@@ -53,5 +53,9 @@ class PollAnswer < ActiveRecord::Base
 	end
 
 
+	def vote_percentage
+		((self.chicago_votes.count.to_f / self.poll_question.chicago_votes.count.to_f)*100).to_i
+	end
+
 
 end
