@@ -2817,3 +2817,10 @@ div.text-right {
   @include link-colors($lite,  gray-lite, $lite, $lite);
 }
 .poll .btn-lg { font-size: 24px; }
+
+
+.panel .poll.slummery{
+  color: white;
+}
+
+.poll [class*="block-grid-"] {margin-bottom: 0; }
