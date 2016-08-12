@@ -14,8 +14,11 @@ class PollsController < ApplicationController
 	end
 
 	def save_poll
-		# binding.pry
-		# answer_txt=""
+		if @poll.background.present? 
+			@custom_background = @poll.background(:original)
+		end
+		@custom_background_full = true
+		
 		data = []
 		ids = []
 		@poll.poll_questions.reorder(:order).each do |q|

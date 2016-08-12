@@ -2834,16 +2834,22 @@ div.text-right {
   .list-group-poll [class*="block-grid-"] { width: 100%; } 
 }
 
-.list-group-poll .panel-gold .list-group-item { 
+
+.panel-gold .list-group-poll .list-group-item { 
 border: 1px solid $gold; 
 } 
-.list-group-poll .panel-green .list-group-item { 
-  border: 1px solid $green; 
+.panel-green .list-group-poll .list-group-item { 
+border: 1px solid $green; 
 } 
-.list-group-poll .panel-purple .list-group-item { 
-  border: 1px solid $purple; 
+
+.panel-purple .list-group-poll .list-group-item { 
+border: 1px solid $purple; 
 }
 
+
+
+
+.list-group-poll .button-pop .pop-number { width: 100%;}
 
 .list-group-poll .button-pop { text-align: center; } .list-group-poll .button-pop .pop-number { color: $lite; } .list-group-poll .button-pop { position: relative; }
 .list-group-poll .button-pop:after {
