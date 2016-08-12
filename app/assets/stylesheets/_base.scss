@@ -2806,7 +2806,11 @@ div.text-right {
   color: black; 
 }
 
-.row-nomargin { margin-left: 0; margin-right: 0; margin-bottom: 0;} 
+.row-nomargin { 
+  margin-left: -15px;
+  margin-right: -15px;
+  margin-bottom: 0;
+} 
 .col-nomargin { padding-left: 0; padding-right: 0; }
 
 .poll-slider-parent  .bx-wrapper .bx-controls-direction a {
