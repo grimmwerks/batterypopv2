@@ -2845,7 +2845,12 @@ border: 1px solid $green;
 .panel-purple .list-group-poll .list-group-item { 
 border: 1px solid $purple; 
 }
+.panel-orange .list-group-poll .list-group-item { 
+border: 1px solid $orange; 
+}
 
+
+.panel>.list-group-poll:last-child .list-group-item:last-child { border-radius: 0; }
 
 
 
