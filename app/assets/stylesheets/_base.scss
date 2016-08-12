@@ -2824,3 +2824,5 @@ div.text-right {
 }
 
 .poll [class*="block-grid-"] {margin-bottom: 0; }
+
+@media (max-width: 767px) { .poll [class*="block-grid-"] { width: 100%; } }
