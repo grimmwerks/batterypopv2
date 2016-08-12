@@ -40,7 +40,7 @@
 						 	<h2><%= pq.title %></h2>
 					 	</div>
 
-						<ul class="list-group list-group-poll block-grid-sm-3">
+						<ul class="list-group list-group-poll block-grid-sm-3 block-grid-md-4">
 						<% pq.poll_answers.each do |item| %>
 							<li class="list-group-item block-grid-item">
 						      	<div class="row clearfix">
@@ -50,7 +50,7 @@
 								   	</div>
 								   	<div class="col-xs-4">
 									    <div class="button-pop vote">
-									    <div class="pop-number"><%= item.vote_percentage %>%
+										    <div class="pop-number"><%= item.vote_percentage %>%
 										</div>
 									</div>
 									
