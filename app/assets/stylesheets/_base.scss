@@ -2289,6 +2289,8 @@ border-bottom: 1px solid $gray-xlite;
     @include link-colors($blue, darken($blue, 10%), $blue, $blue);
   }
 
+
+
   .bx-prev {
     left: -40px !important;
   }
@@ -2788,4 +2790,18 @@ div.text-right {
   text-align: center;
   border-radius: 0;
   vertical-align: top;
+}
+
+
+.poll-slider-parent li:after { background: none; }
+
+
+.poll-image { margin: auto; }
+
+.poll-slider li h2 { text-align: center; }
+
+.poll.summary h2 { text-align: center; }
+
+.poll-slider-parent  .bx-wrapper .bx-controls-direction a {
+  @include link-colors($lite,  gray-lite, $lite, $lite);
 }
