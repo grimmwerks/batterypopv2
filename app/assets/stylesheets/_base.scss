@@ -2843,3 +2843,20 @@ border: 1px solid $gold;
 .list-group-poll .panel-purple .list-group-item { 
   border: 1px solid $purple; 
 }
+
+
+.list-group-poll .button-pop { text-align: center; } .list-group-poll .button-pop .pop-number { color: $lite; } .list-group-poll .button-pop { position: relative; }
+.list-group-poll .button-pop:after {
+right: 100%;
+top: 50%;
+border: solid transparent;
+content: " ";
+height: 0;
+width: 0;
+position: absolute;
+pointer-events: none;
+border-color: rgba(201,0,0,0);
+border-right-color: $red;
+border-width: 5px;
+margin-top: -5px;
+}
