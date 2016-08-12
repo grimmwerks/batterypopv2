@@ -2819,24 +2819,27 @@ div.text-right {
 .poll .btn-lg { font-size: 24px; }
 
 
-.panel .poll.slummery{
-  color: white;
+.poll.summary h2 { color: $lite; }
+
+.list-group-poll .pop-number { 
+  text-align: center; 
+  color: $lite; 
 }
 
-.poll [class*="block-grid-"] {
-  margin-bottom: 0;
+.list-group-poll [class*="block-grid-"] {
+  margin-bottom: 0; 
 }
 
 @media (max-width: 767px) { 
-  .poll [class*="block-grid-"] { width: 100%; } 
+  .list-group-poll [class*="block-grid-"] { width: 100%; } 
 }
 
-.poll .panel-gold .list-group-item { 
-  border: 1px solid $gold; 
+.list-group-poll .panel-gold .list-group-item { 
+border: 1px solid $gold; 
 } 
-.poll .panel-green .list-group-item { 
+.list-group-poll .panel-green .list-group-item { 
   border: 1px solid $green; 
 } 
-.poll .panel-purple .list-group-item { 
+.list-group-poll .panel-purple .list-group-item { 
   border: 1px solid $purple; 
 }
