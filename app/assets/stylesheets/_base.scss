@@ -2797,6 +2797,12 @@ div.text-right {
 
 .button-pop.vote{
   overflow: visible;
+  height: 100%;
+}
+
+.button-pop.vote .pop-number{
+  height: 130px;
+  line-height: 130px;
 }
 
 .poll-slider-parent li:after { background: none; }
