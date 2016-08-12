@@ -2,7 +2,7 @@
 
 <!-- top part -->
 	<div class="poll row nomargin clearfix">
-		<div class="thumbnail">
+		
 			<div class="poll_scene" style="background-image:url(<%= @poll.image %>)">
 
 			<% @poll.poll_questions.reorder(:order).each do |pq| %>
@@ -10,7 +10,7 @@
 			<% end %>
 		      
 			</div>
-		</div>
+		
 	</div>
 <!-- end top part -->
 
