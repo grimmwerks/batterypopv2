@@ -2812,5 +2812,4 @@ div.text-right {
 .poll-slider-parent  .bx-wrapper .bx-controls-direction a {
   @include link-colors($lite,  gray-lite, $lite, $lite);
 }
-
-.poll .btn-lg { @extend .h2; }
+.poll .btn-lg { font-size: 24px; }
