@@ -2285,16 +2285,16 @@ border-bottom: 1px solid $gray-xlite;
     margin-bottom: 0;
   }
   .bx-wrapper .bx-controls-direction a {
-    top: 100%;
+    top: 50%;
     @include link-colors($blue, darken($blue, 10%), $blue, $blue);
   }
 
   .bx-prev {
-    left: -5px;
+    left: -40px !important;
   }
 
   .bx-next {
-    right: -5px;
+    right: -40px !important;
   }
 
   .bx-wrapper .bx-controls-direction a.disabled {

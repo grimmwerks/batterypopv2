@@ -61,6 +61,8 @@
 											<% pq.poll_answers.each do |item| %>
 												<li data-id="<%= item.id %>" data-question="<%= pq.id %>">
 													<%=  image_tag(item.slide_image, :height => '160', :class => "poll-image data-id=#{item.id}") %>
+
+													<h2><%= item.title %></h2>
 												</li>
 											<% end %>
 										</ul>
