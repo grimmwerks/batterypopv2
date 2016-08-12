@@ -2283,8 +2283,8 @@ border-bottom: 1px solid $gray-xlite;
     margin-bottom: 0;
   }
   .bx-wrapper .bx-controls-direction a {
-    top: -30px;
-    @include link-colors($blue, darken($blue, 10%), $blue, $blue);
+    top: -25px;
+    @include link-colors($lite,  gray-lite, $lite, $lite);
   }
 
 
