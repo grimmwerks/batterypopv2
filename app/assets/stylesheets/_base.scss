@@ -2823,8 +2823,20 @@ div.text-right {
   color: white;
 }
 
-.poll [class*="block-grid-"] {margin-bottom: 0; }
+.poll [class*="block-grid-"] {
+  margin-bottom: 0;
+}
 
-@media (max-width: 767px) { .poll [class*="block-grid-"] { width: 100%; } }
+@media (max-width: 767px) { 
+  .poll [class*="block-grid-"] { width: 100%; } 
+}
 
-.poll .panel-gold .list-group-item { 1px solid $gold; } .poll .panel-green .list-group-item { 1px solid $green; } .poll .panel-purple .list-group-item { 1px solid $purple; }
+.poll .panel-gold .list-group-item { 
+  border: 1px solid $gold; 
+} 
+.poll .panel-green .list-group-item { 
+  border: 1px solid $green; 
+} 
+.poll .panel-purple .list-group-item { 
+  border: 1px solid $purple; 
+}
