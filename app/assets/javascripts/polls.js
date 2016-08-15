@@ -26,8 +26,8 @@ $(document).ready(function() {
         minSlides: 1,
         maxSlides: 1,
         slideWidth: 240,
-        infiniteLoop: false,
-        hideControlOnEnd: true,
+        infiniteLoop: true,
+        hideControlOnEnd: false,
         slideMargin: 0
     })
 
