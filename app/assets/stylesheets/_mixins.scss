@@ -350,6 +350,24 @@ border-color: darken($btn-color, 5%);
   @include banner-theme($blue);
 }
 
+.banner.theme-green {
+  @include banner-theme($green);
+}
+
+.banner.theme-gold {
+  @include banner-theme($gold);
+}
+
+.banner.theme-purple {
+  @include banner-theme($purple);
+}
+.banner.theme-mint {
+  @include banner-theme($mint);
+}
+.banner.theme-orange {
+  @include banner-theme($orange);
+}
+
 
 // panel-themes
 @mixin panel-theme($panel-color) { 

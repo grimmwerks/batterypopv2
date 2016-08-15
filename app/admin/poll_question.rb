@@ -17,7 +17,7 @@ ActiveAdmin.register PollQuestion do
 			g.input :order
 			g.input :description, :as => :rich, :allow_embeds => true
 			g.input :image,  :hint => g.object.image.present? \
-	        ? g.template.image_tag(g.object.image.url)
+	        ? g.template.image_tag(g.object.image.url, width: 250)
 	        : g.template.content_tag(:span, 'image.')
             g.input :data
 		end

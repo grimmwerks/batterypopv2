@@ -1,5 +1,5 @@
 class PollsController < ApplicationController
-	before_action :set_poll, only: [:show, :edit, :update, :destroy, :save_poll]
+	before_action :set_poll, only: [:show, :edit, :update, :destroy, :save_poll, :download]
 
 	def index
 	end
@@ -37,6 +37,11 @@ class PollsController < ApplicationController
 			@poll_scene = PollScene.build_scene(data)
 		end
 	end
+
+	def download
+		send_file params[:url],:type=>"application/png", :x_sendfile=>true
+	end
+
 
 	def refresh_layer
 		@poll_answer = PollAnswer.find(params[:answer_id])
