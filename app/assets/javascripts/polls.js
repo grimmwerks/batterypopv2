@@ -8,7 +8,7 @@ $(document).ready(function() {
             var q = item[0].getAttribute('data-question');
             var j = "#poll_question_"+q;
             $(j).val(id);
-        
+            $("#poll_slider_overlay_"+q).hide(150);
             $.ajax({
                 type:'POST',
                 url: '/poll_refresh_layer',
@@ -35,3 +35,17 @@ $(document).ready(function() {
 
 
 });
+
+function check_poll_submit(){
+    var answers = $(".poll_answer");
+    var flag = true;
+    answers.each(function (index){
+        if($(this).val()==""){
+            flag = false;
+        }
+    });
+    if(flag==false){
+        $('#pollModal').modal('show'); 
+    }
+    return flag;
+}

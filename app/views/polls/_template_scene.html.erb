@@ -27,7 +27,7 @@
 <!-- question loop -->
 <% pos = 0 %>
 
-<%= form_for(@poll, :url => {action: "save_poll"}) do |f| %>
+<%= form_for(@poll, :url => {action: "save_poll"}, html: { onsubmit: "return check_poll_submit()"} ) do |f| %>
 <% @poll.poll_questions.reorder(:order).each do |pq| %>
 	
 		<%  if(pos >= (colors.count-1)) 
@@ -66,6 +66,9 @@
 												</li>
 											<% end %>
 										</ul>
+										<div class="panel-<%= colors[pos] %> poll-slider-overlay" id="poll_slider_overlay_<%= pq.id %>">
+											<%=  image_tag(pq.image) %>
+										</div>
 									</div>
 
 								</div>
@@ -75,7 +78,7 @@
 						</div>
 					</div>
 					
-					<%= hidden_field_tag "poll_question_#{pq.id}" %>
+					<%= hidden_field_tag "poll_question_#{pq.id}", "", :class =>  "poll_answer" %>
 
 				</div>
 
@@ -118,5 +121,27 @@
 <!-- end submit button -->
 <% end %>
 <!-- end question loop -->
+
+<!-- modal for not all selected -->
+<div class="modal fade" id="pollModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h3 class="modal-title" id="myModalLabel">Select every item!</h3>
+      </div>
+      <div class="modal-body">
+       <p>Please make sure every item has been chosen and hit the <b>Submit</b> button again!</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-dismiss="modal">OK!</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
 
 </section>

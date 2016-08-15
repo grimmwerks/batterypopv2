@@ -2815,6 +2815,24 @@ div.text-right {
   color: black; 
 }
 
+.poll-slider-overlay{
+  display: inline-block;
+  width: 100%;
+  position: absolute;
+  top: 0;
+}
+
+.poll-slider-overlay img{
+    /* position: absolute; 
+    width: 100%;
+    vertical-align: middle; */
+    display: block;
+    margin: auto;
+}
+
+
+
+
 .row-nomargin { 
   margin-left: -15px;
   margin-right: -15px;
