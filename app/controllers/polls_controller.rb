@@ -6,6 +6,11 @@ class PollsController < ApplicationController
 
 
 	def show
+		# check if poll start_date has happened
+		if !@poll.start_date.past?
+			redirect_to "/"
+			return
+		end
 		@title = @poll.title
 		if @poll.background.present? 
 			@custom_background = @poll.background(:original)
