@@ -29,8 +29,7 @@ $(document).ready(function() {
         infiniteLoop: true,
         hideControlOnEnd: false,
         slideMargin: 0
-    })
-
+    });
 
 
 

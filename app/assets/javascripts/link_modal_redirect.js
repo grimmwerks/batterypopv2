@@ -1,6 +1,11 @@
 $(document).ready(function(){
 
 	$('a[href]').not('a[href*="batterypop.com"], a[href="#"], a[href^="/"], a[href="https://plus.google.com/111613426507812683994"]').each(function(){
+	    if ($(this).attr("data-override")=="true"){
+	    	return
+	    }
+
+
 	    var url = $(this).attr('href');
 		// alert(url);
 		$(this).attr("data-toggle", "modal");

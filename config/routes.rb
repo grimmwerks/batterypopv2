@@ -35,11 +35,10 @@ Batterypopv2::Application.routes.draw do
     member do 
       patch :save_poll
        post :refresh_layer
-       post :download
     end
   end
 
-
+# get "polls/:id/download", :to => "polls#download"
 
 post "/poll_refresh_layer", :to => "polls#refresh_layer"
 get "/poll_refresh_layer", :to => "polls#refresh_layer"

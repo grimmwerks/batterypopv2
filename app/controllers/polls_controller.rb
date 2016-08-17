@@ -43,9 +43,15 @@ class PollsController < ApplicationController
 		end
 	end
 
-	def download
-		send_file params[:url],:type=>"application/png", :x_sendfile=>true
-	end
+	# def download
+	# 	# binding.pry
+	# 	ps=PollScene.find(params[:poll_scene_id])
+	# 	# redirect_to ps.image.url
+	# 	send_file ps.image.url,:type=>"application/png", :x_sendfile=>true
+	# 	
+	# 	view:
+	# 	<% link_to "Click Here!", {:controller => "polls", :action => "download", :poll_scene_id => @poll_scene.id}, remote: true %>
+	# end
 
 
 	def refresh_layer
