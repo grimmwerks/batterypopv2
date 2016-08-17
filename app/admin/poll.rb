@@ -14,7 +14,7 @@ ActiveAdmin.register Poll do
 		f.inputs "Poll Details" do
 			f.input :title, :required => true
 			f.input :description, :as => :rich, :allow_embeds => true
-			
+			f.input :content, :as => :rich, :allow_embeds => true
 			f.input :image, :allow_destroy => true,  :hint => f.object.image.present? \
 		        ? f.template.image_tag(f.object.image.url, width: "300")
 		        : f.template.content_tag(:span, 'image.')

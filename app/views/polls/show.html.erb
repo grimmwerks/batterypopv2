@@ -1,1 +1,12 @@
-<%= render partial: "polls/template_scene" %>
+<!-- @poll content -->
+<section class="wrapper">
+	<%= @poll.content.html_safe %>
+</section>
+
+
+<!-- check end date display -->
+<% if !@poll.end_date.past? %>
+	<%= render partial: "polls/template_scene" %>
+<% else %>
+	<%= render partial: "polls/template_scene_votes" %>
+<% end %>
