@@ -20,13 +20,13 @@
 
 			<div class="well well-frame col-md-12">
 			
-				<div class="col-md-9">
-				<h2>Download your scene!</h2>
-				<p>Click the button and download the scene you created:</p>
+				<div class="col-md-8">
+				<h2>Keep voting until October 2nd!</h2>
+				<p>And then come back here to watch YOUR cartoon come to life!</p>
 				</div>
 
-				<div class="col-md-3">
-					<%= link_to "Download", @poll_scene.image.url(:original, false), html_options ={id: "poll_scene_download", class: "btn btn-lg btn-primary btn-block", "data-override" => "true"} %>
+				<div class="col-md-4">
+					<%= link_to "Download Your Scene", @poll_scene.image.url(:original, false), html_options ={id: "poll_scene_download", class: "btn btn-lg btn-primary btn-block", "data-override" => "true"} %>
 
 
 				</div>
