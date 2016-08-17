@@ -16,7 +16,7 @@ ActiveAdmin.register Poll do
 			f.input :description, :as => :rich, :allow_embeds => true
 			
 			f.input :image, :allow_destroy => true,  :hint => f.object.image.present? \
-		        ? f.template.image_tag(f.object.image.url)
+		        ? f.template.image_tag(f.object.image.url, width: "300")
 		        : f.template.content_tag(:span, 'image.')
 		    if f.object.image.present? 
 		        f.input :delete_image, as: :boolean, required: :false, label: 'Remove image'

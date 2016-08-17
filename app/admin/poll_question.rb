@@ -2,6 +2,12 @@ ActiveAdmin.register PollQuestion do
 	menu :parent => "Voting", :priority => 1
 
 
+    controller do
+        def scoped_collection
+           super.eager_load(:poll_answers)
+        end
+    end
+
 
   before_filter :only => [:show, :destroy, :edit, :update] do
     @poll_question = PollQuestion.includes(:poll_answers).friendly.find(params[:id])
@@ -17,7 +23,7 @@ ActiveAdmin.register PollQuestion do
 			g.input :order
 			g.input :description, :as => :rich, :allow_embeds => true
 			g.input :image,  :hint => g.object.image.present? \
-	        ? g.template.image_tag(g.object.image.url, width: 250)
+	        ? g.template.image_tag(g.object.image.url, width: "300")
 	        : g.template.content_tag(:span, 'image.')
             g.input :data
 		end

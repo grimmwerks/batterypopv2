@@ -2,7 +2,7 @@ class PollQuestion < ActiveRecord::Base
 	belongs_to :poll, touch: true
 	has_many :poll_answers
 
-	has_many :chicago_votes, :as => :voteable, through: :poll_answers
+	# has_many :chicago_votes, :as => :voteable, through: :poll_answers
 
 	extend FriendlyId
 	friendly_id :slug_candidates, use: :slugged

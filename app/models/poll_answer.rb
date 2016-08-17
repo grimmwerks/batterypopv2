@@ -54,7 +54,8 @@ class PollAnswer < ActiveRecord::Base
 
 
 	def vote_percentage
-		((self.chicago_votes.count.to_f / self.poll_question.chicago_votes.count.to_f)*100).to_i
+		chicago_total = ChicagoVote.where(voteable_type: "PollAnswer", voteable_id: self.poll_question.poll_answer_ids).count
+		((self.chicago_votes.count.to_f / chicago_total.to_f)*100).to_i
 	end
 
 
