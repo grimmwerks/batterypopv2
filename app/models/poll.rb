@@ -1,6 +1,7 @@
 class Poll < ActiveRecord::Base
 	has_many :poll_questions
 	has_many :poll_answers, through: :poll_questions
+	has_many :chicago_votes, through: :poll_answers
 
 	extend FriendlyId
 	friendly_id :slug_candidates, use: :slugged
