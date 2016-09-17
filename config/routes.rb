@@ -35,6 +35,7 @@ Batterypopv2::Application.routes.draw do
     member do 
       patch :save_poll
        post :refresh_layer
+      post :download
     end
   end
 
@@ -42,6 +43,9 @@ Batterypopv2::Application.routes.draw do
 
 post "/poll_refresh_layer", :to => "polls#refresh_layer"
 get "/poll_refresh_layer", :to => "polls#refresh_layer"
+
+post "/download", :to => "polls#download"
+get "/download", :to => "polls#download"
 
 # save_poll_question_poll_poll_question PATCH      /polls/:poll_id/poll_questions/:id/save_poll_question(.:format) 
   

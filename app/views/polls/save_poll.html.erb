@@ -26,8 +26,9 @@
 				</div>
 
 				<div class="col-md-4">
-					<%= link_to "Download Your Scene", @poll_scene.image.url(:original, false), html_options ={id: "poll_scene_download", class: "btn btn-lg btn-primary btn-block", "data-override" => "true"} %>
+					<%= link_to "Download Your Scene", @poll_scene.image.url(:original, false), html_options ={id: "poll_scene_download", class: "btn btn-lg btn-primary btn-block", "data-override" => "true", "data-id" => @poll_scene.id } %>
 
+					
 
 				</div>
 

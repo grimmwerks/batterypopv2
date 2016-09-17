@@ -33,6 +33,16 @@ $(document).ready(function() {
 
 
 
+    $('#poll_scene_download').click(function(){
+        $.ajax({
+            type:'POST',
+            url: '/download',
+            data: {id: $(this).attr("data-id")}
+        });
+    });
+
+
+
 });
 
 function check_poll_submit(){

@@ -1,5 +1,5 @@
 class PollsController < ApplicationController
-	before_action :set_poll, only: [:show, :edit, :update, :destroy, :save_poll, :download]
+	before_action :set_poll, only: [:show, :edit, :update, :destroy, :save_poll]
 
 	def index
 	end
@@ -40,6 +40,14 @@ class PollsController < ApplicationController
 		@poll_scene = PollScene.find_scene_by_answer_ids(ids)
 		if @poll_scene.nil?
 			@poll_scene = PollScene.build_scene(data)
+		end
+	end
+
+	def download
+		poll_scene = PollScene.find(params["id"])
+		ChicagoVote.create(:voteable=>poll_scene)
+		respond_to do |format|
+			format.js
 		end
 	end
 
