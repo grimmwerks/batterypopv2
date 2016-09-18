@@ -4,6 +4,8 @@ class PollScene < ActiveRecord::Base
 	has_many :poll_questions, through: :poll_answers
 	has_many :polls, through: :poll_questions
 
+	has_many :chicago_votes
+
 	before_create :rewrite_image_name
 
 	has_attached_file :image,
