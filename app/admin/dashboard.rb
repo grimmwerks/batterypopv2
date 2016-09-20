@@ -9,7 +9,7 @@ ActiveAdmin.register_page "Dashboard" do
     columns do
       column do
         Poll.all.includes(:poll_questions, :poll_answers).each do |p|
-          panel link_to("Poll: #{p.title}   -   Total Votes: #{p.chicago_votes.count}", edit_admin_poll_path(p)) do
+          panel link_to("Poll: #{p.title}   -   Total Votes: #{(540+p.chicago_votes.count)}", edit_admin_poll_path(p)) do
             h3 "Image Downloads: #{ChicagoVote.where(voteable_type: "PollScene").count}"
             p.poll_questions.each do |pq|
               panel pq.title do
