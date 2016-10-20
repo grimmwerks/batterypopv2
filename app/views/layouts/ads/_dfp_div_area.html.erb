@@ -1,5 +1,5 @@
 <% if  @dfp_banner_ad.nil? || @dfp_banner_ad.empty? %>
-	<div class="wrapper-advert">
+	<div class="wrapper-advert hidden-xs">
 		<div id='<%= ad_id %>' class='webad-top-horizontal hidden-xs'>
 			<script type='text/javascript'>
 				googletag.cmd.push(function() { googletag.display('<%= ad_id %>'); });
@@ -7,7 +7,7 @@
 		</div>
 	</div>
 <% else %>
-	<div class="wrapper-advert">
+	<div class="wrapper-advert hidden-xs">
 		<%= @dfp_banner_ad.html_safe %>
 	</div>
 <% end %>
