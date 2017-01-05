@@ -34,7 +34,7 @@ class Poll < ActiveRecord::Base
 	  validates_attachment_size :image, :less_than => 5.megabytes
 	  validates_attachment_content_type :image, :content_type => ['image/jpeg', 'image/png']
 
-
+	  before_save :destroy_images?
 
 	def delete_image
 		@delete_image ||= "0"
@@ -54,6 +54,11 @@ class Poll < ActiveRecord::Base
 
 
   private
+	def destroy_images?
+	    self.image = nil if @delete_image == "1"
+	    self.background = nil if @delete_background == "1"
+	end
+
 	def slug_candidates
 		[
 			:title,
