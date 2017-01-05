@@ -1,9 +1,11 @@
-<section class="wrapper">	
+<section class="wrapper">
+
+	<% if !@poll.image_file_name.nil? %>	
 	<!-- top part -->
 	<div class="poll row row-nomargin clearfix">
-		<% if !@poll.image_file_name.nil? %>
+			
 			<div class="poll_scene" style="background-image:url(<%= @poll.image %>)">
-		<% end %>
+		
 
 			<% @poll.poll_questions.reorder(:order).each do |pq| %>
 				<%= render :partial => "polls/template_scene_layer", :locals =>{:q_id => pq.id, :start_image => true, :a_id => nil} %>
@@ -13,7 +15,7 @@
 		
 	</div>
 	<!-- end top part -->
-
+	<% end %>
 
 
 	<!-- text area -->
