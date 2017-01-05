@@ -1,7 +1,7 @@
 <section class="wrapper">	
 	<!-- top part -->
 	<div class="poll row row-nomargin clearfix">
-		<% if !@poll.image.nil? %>
+		<% if !@poll.image_file_name.nil? %>
 			<div class="poll_scene" style="background-image:url(<%= @poll.image %>)">
 		<% end %>
 
