@@ -14,8 +14,7 @@ class Poll < ActiveRecord::Base
 		storage: :s3,
 		s3_credentials: "#{Rails.root}/config/amazon_s3.yml",
 		path: "images/poll/:id/image/:attachment/:filename",
-		bucket: S3_BUCKET,
-		default_url: "/assets/missing.png"
+		bucket: S3_BUCKET
 
 	has_attached_file :background,
 	    :styles => { full: "1600x1100>", large: "300x300>",  :thumb => "100x100>" },
