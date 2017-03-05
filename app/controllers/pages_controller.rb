@@ -1,11 +1,12 @@
 class PagesController < ApplicationController
   before_action :set_page, only: [:show, :edit, :update]
+  before_action :set_id_ad, only: [:show]
+  before_action :set_action_ad, only: [:home, :search, :shows, :shorts]
   
   def home
     @banner_ad = "/31902320/Homepage_Leaderboard"
     @banner_id = 'div-gpt-ad-1411455733171-0'
 
-  
 
     @title = "Free Videos for Kids"
     @active = "home"
@@ -95,6 +96,11 @@ class PagesController < ApplicationController
     @page = Page.friendly.find(params[:id])
   end
 
-
+  def set_id_ad
+    @ads = Ad.where(:active => true, :page_slug => params[:id])
+  end
+  def set_action_ad
+    @ads = Ad.where(:active => true, :page_slug => params[:action])
+  end
 
 end

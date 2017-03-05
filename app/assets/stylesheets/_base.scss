@@ -1371,6 +1371,21 @@ border-radius: 0 !important;
   }
 }
 
+.ad-page{
+  .well{
+    height: 450px;
+    padding: 0px;
+  }
+  .row{
+    margin-left: 0px;
+    margin-right: 0px;
+  }
+  .col-ad{
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+}
+
 .ad-samsung{
   text-align: center;
     .well {

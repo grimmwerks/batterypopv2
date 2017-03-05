@@ -5,6 +5,8 @@ class Page < ActiveRecord::Base
 	extend FriendlyId
 	friendly_id :slug_candidates, use: :slugged
 
+	has_many :ads
+
 	acts_as_taggable_on  :keywords
 
 
