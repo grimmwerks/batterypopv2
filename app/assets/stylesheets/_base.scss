@@ -488,7 +488,7 @@ background-color: $lite;
 
     li {
     @extend %font-display;
-    @include fontsize(2.6);
+    @include fontsize(2.2);
     float: none;
     display: inline-block;
     margin: 0 1%; 
